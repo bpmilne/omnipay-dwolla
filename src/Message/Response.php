@@ -14,7 +14,7 @@ class Response extends AbstractResponse implements RedirectResponseInterface
         return $this->data['Result'] == "Failure";
     }
 
-    public function isRedirect() 
+    public function isRedirect()
     {
         return $this->isSuccessful();
     }
@@ -26,12 +26,12 @@ class Response extends AbstractResponse implements RedirectResponseInterface
         }
     }
 
-    public function getRedirectMethod() 
+    public function getRedirectMethod()
     {
         return 'GET';
     }
 
-    public function getRedirectData() 
+    public function getRedirectData()
     {
         return null;
     }
