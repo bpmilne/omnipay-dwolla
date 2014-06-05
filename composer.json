@@ -8,7 +8,7 @@
         "omnipay",
         "pay",
         "payment",
-        "stripe"
+        "dwolla"
     ],
     "homepage": "https://github.com/mach-kernel/omnipay-dwolla",
     "license": "MIT",
@@ -22,7 +22,6 @@
             "homepage": "https://github.com/mach-kernel"
         }
     ],
-    "autoload": {
         "psr-4": { "Omnipay\\Dwolla\\" : "src/" }
     },
     "require": {
