@@ -7,7 +7,7 @@ namespace Omnipay\Dwolla\Message;
  *
  * @method \Omnipay\Dwolla\Message\Response send()
  */
-abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
+abstract class AbstractRequest extends Omnipay\Common\Message\AbstractRequest
 {
     protected $host = 'https://www.dwolla.com/';
 
