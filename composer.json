@@ -1,5 +1,5 @@
 {
-    "name": "omnipay-dwolla",
+    "name": "omnipay_dwolla",
     "type": "library",
     "description": "Dwolla support for the Omnipay payment library",
     "keywords": [
