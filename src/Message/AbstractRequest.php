@@ -44,9 +44,10 @@ abstract class AbstractRequest extends Omnipay\Common\Message\AbstractRequest
         // Don't throw exceptions for 4xx errors
         $this->httpClient->getEventDispatcher()->addListener(
             'request.error',
-            function ($event) 
-            {
-                if ($event['response']->isClientError()) { $event->stopPropagation(); }
+            function ($event) {
+                if ($event['response']->isClientError()) { 
+                    $event->stopPropagation();
+                }
             }
         );
 
@@ -56,6 +57,7 @@ abstract class AbstractRequest extends Omnipay\Common\Message\AbstractRequest
             null,
             $data
         );
+        
         $httpResponse = $httpRequest
             ->setHeaderarray('Accept: application/json', 'Content-Type: application/json;charset=UTF-8'))
             ->send();
