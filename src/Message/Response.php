@@ -21,7 +21,9 @@ class Response extends AbstractResponse implements RedirectResponseInterface
 
     public function getTransactionReference()
     {
-        if (isset($this->data['CheckoutId']) { return $this->data['CheckoutId']; }
+        if (isset($this->data['CheckoutId']) {
+            return $this->data['CheckoutId'];
+        }
     }
 
     public function getRedirectMethod() 
