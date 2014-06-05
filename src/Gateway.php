@@ -55,6 +55,16 @@ class Gateway extends AbstractGateway
         return $this->setParameter('key_secret', $value);
     }
 
+    public function getSandboxMode()
+    {
+        return $this->getParameter('sandbox');
+    }
+
+    public function setSandboxMode($value)
+    {
+        return $this->setParameter('sandbox', $value);
+    }
+
     /**
     *   $parameters = array(
     *      'Name' => $name,

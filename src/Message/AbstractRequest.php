@@ -10,6 +10,9 @@ namespace Omnipay\Dwolla\Message;
 abstract class AbstractRequest extends Omnipay\Common\Message\AbstractRequest
 {
     protected $host = 'https://www.dwolla.com/';
+    protected $sandbox_host = 'https://uat.dwolla.com';
+
+    abstract public function getEndpoint();
 
     public function getKeySecret()
     {
@@ -21,7 +24,15 @@ abstract class AbstractRequest extends Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('key_secret', $value);
     }
 
-    abstract public function getEndpoint();
+    public function getSandboxMode()
+    {
+        return $this->getParameter('sandbox');
+    }
+
+    public function setSandboxMode($value)
+    {
+        return $this->setParameter('sandbox', $value);
+    }
 
     public function getHttpMethod()
     {

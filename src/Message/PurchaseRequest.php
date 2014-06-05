@@ -44,6 +44,6 @@ class PurchaseRequest extends AbstractRequest
 
     public function getEndpoint()
     {
-    	return $this->host . 'payment/request/';
+    	return ($this->getParameter('sandbox') ? $this->sandbox_host : $this->host) . 'payment/request/';
     }
 }
