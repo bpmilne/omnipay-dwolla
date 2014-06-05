@@ -10,7 +10,7 @@ class PurchaseRequest extends AbstractRequest
     public function getData()
     {
         $subtotal = 0;
-        
+
         foreach ($this->getParameter('gatewaySession') as $product) {
             $subtotal += floatval($product['Price']) * floatval($product['Quantity']);
         }
@@ -24,8 +24,8 @@ class PurchaseRequest extends AbstractRequest
                       'Secret'              => $this->getParameter('key_secret')['secret'],
                       'AllowFundingSources' => $this->getParameter('AllowFundingSources'),
                       'AllowGuestCheckout'  => $this->getParameter('AllowGuestCheckout'),
-                      'Callback'            => $this->getParameter('Callback') ? $this->getParameter('Callback') : null ,
-                      'Redirect'            => $this->getParameter('Redirect') ? $this->getParameter('Redirect') : null ,
+                      'Callback'            => $this->getParameter('Callback') ? $this->getParameter('Callback') : null,
+                      'Redirect'            => $this->getParameter('Redirect') ? $this->getParameter('Redirect') : null,
                       'PurchaseOrder'       => array(
                         'DestinationId' => $this->getParameter('DestinationId'),
                         'orderItems'    => $this->getParameter('gatewaySession'),

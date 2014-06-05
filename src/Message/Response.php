@@ -14,16 +14,25 @@ class Response extends AbstractResponse implements RedirectResponseInterface
         return $this->data['Result'] == "Failure";
     }
 
-    public function isRedirect() { return $this->isSuccessful(); }
+    public function isRedirect() 
+    {
+        return $this->isSuccessful();
+    }
 
     public function getTransactionReference()
     {
         if (isset($this->data['CheckoutId']) { return $this->data['CheckoutId']; }
     }
 
-    public function getRedirectMethod() { return 'GET'; }
+    public function getRedirectMethod() 
+    {
+        return 'GET';
+    }
 
-    public function getRedirectData() { return null; }
+    public function getRedirectData() 
+    {
+        return null;
+    }
 
     public function getRedirectUrl()
     {
@@ -32,6 +41,8 @@ class Response extends AbstractResponse implements RedirectResponseInterface
 
     public function getMessage()
     {
-        if (!$this->isSuccessful()) { return $this->data['Message']; }
+        if (!$this->isSuccessful()) {
+            return $this->data['Message'];
+        }
     }
 }
