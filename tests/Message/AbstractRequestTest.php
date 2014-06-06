@@ -15,7 +15,7 @@ class AbstractRequestTest extends TestCase
 
     public function testKeySecret()
     {
-        $this->assertSame($this->request, $this->request->setKeySecret(array('key' => 'abc', 'secret' => '123'));
+        $this->assertSame($this->request, $this->request->setKeySecret(array('key' => 'abc', 'secret' => '123')));
         $this->assertSame(array('key' => 'abc', 'secret' => '123'), $this->request->getKeySecret());
     }
 
