@@ -9,7 +9,7 @@ class AbstractRequestTest extends TestCase
 {
     public function setUp()
     {
-        $this->request = m::mock('\Omnipay\Stripe\Message\AbstractRequest')->makePartial();
+        $this->request = m::mock('\Omnipay\Dwolla\Message\AbstractRequest')->makePartial();
         $this->request->initialize();
     }
 
