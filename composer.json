@@ -22,8 +22,8 @@
             "homepage": "https://github.com/mach-kernel"
         }
     ],
-    "psr-4": { 
-            "Omnipay\\Dwolla\\" : "src/" 
+    "autoload": {
+        "psr-0": { "Omnipay\\Dwolla\\" : "src/" }
     },
     "require": {
             "omnipay/common": "~2.0"
