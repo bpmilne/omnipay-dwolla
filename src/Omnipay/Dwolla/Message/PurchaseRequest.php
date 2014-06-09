@@ -25,8 +25,10 @@ class PurchaseRequest extends AbstractRequest
                       'Secret'              => $keysec['secret'],
                       'AllowFundingSources' => $this->request->getParameter('AllowFundingSources'),
                       'AllowGuestCheckout'  => $this->request->getParameter('AllowGuestCheckout'),
-                      'Callback'            => $this->request->getParameter('Callback') ? $this->request->getParameter('Callback') : null,
-                      'Redirect'            => $this->request->getParameter('Redirect') ? $this->request->getParameter('Redirect') : null,
+                      'Callback' => $this->request->getParameter('Callback') ? 
+                        $this->request->getParameter('Callback') : null,
+                      'Redirect' => $this->request->getParameter('Redirect') ? 
+                        $this->request->getParameter('Redirect') : null,
                       'PurchaseOrder'       => array(
                         'DestinationId' => $this->request->getParameter('DestinationId'),
                         'orderItems'    => $this->request->getParameter('gatewaySession'),
