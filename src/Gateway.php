@@ -4,7 +4,6 @@ namespace Omnipay\Dwolla;
 
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Dwolla\Message\PurchaseRequest;
-use Omnipay\Dwolla\Message\RefundRequest;
 
 /**
  * Dwolla Gateway
