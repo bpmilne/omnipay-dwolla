@@ -34,6 +34,27 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('sandbox', $value);
     }
 
+        /**
+    *   $parameters = array(
+    *      'Name' => $name,
+    *      'Description' => $description,
+    *      'Price' => $price,
+    *      'Quantity' => $quantity
+    *   );
+    */
+
+    public function addItem(array $parameters = array())
+    {
+        if (!$this->getParameter('gatewaySession')) {
+            $this->clearItems();
+        }
+        return $this->setParameter('gatewaySession', $parameters);
+    }
+    public function clearItems()
+    {
+        return $this->setParameter('gatewaySession', array());
+    }
+
     public function getHttpMethod()
     {
         return 'POST';
