@@ -19,9 +19,10 @@ class PurchaseRequest extends AbstractRequest
         $shipping = $this->getParameter('shipping') ? $this->getParameter('shipping') : 0;
         $tax = $this->getParameter('tax') ? $this->getParameter('tax') : 0;
 
+        $keysec = $this->getParameter('key_secret');
 
-        $data = array('Key'                 => $this->getParameter('key_secret')['key'],
-                      'Secret'              => $this->getParameter('key_secret')['secret'],
+        $data = array('Key'                 => $keysec['key'],
+                      'Secret'              => $keysec['secret'],
                       'AllowFundingSources' => $this->getParameter('AllowFundingSources'),
                       'AllowGuestCheckout'  => $this->getParameter('AllowGuestCheckout'),
                       'Callback'            => $this->getParameter('Callback') ? $this->getParameter('Callback') : null,
