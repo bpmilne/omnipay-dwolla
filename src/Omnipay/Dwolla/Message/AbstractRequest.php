@@ -2,12 +2,14 @@
 
 namespace Omnipay\Dwolla\Message;
 
+use Omnipay\Common\Message\AbstractRequest;
+
 /**
  * Dwolla Abstract Request
  *
  * @method \Omnipay\Dwolla\Message\Response send()
  */
-abstract class AbstractRequest extends Omnipay\Common\Message\AbstractRequest
+abstract class AbstractRequest extends AbstractRequest
 {
     protected $host = 'https://www.dwolla.com/';
     protected $sandbox_host = 'https://uat.dwolla.com';
