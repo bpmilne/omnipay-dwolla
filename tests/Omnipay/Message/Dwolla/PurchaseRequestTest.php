@@ -25,10 +25,10 @@ class PurchaseRequestTest extends TestCase
                       'PurchaseOrder'       => array(
                         'DestinationId' => '812-111-7219',
                         'orderItems'    => $this->request->getP('gatewaySession'),
-                        'discount'      => $discount,
-                        'shipping'      => $shipping,
-                        'tax'           => $tax,
-                        'total'         => round($subtotal - $discount + $shipping + $tax, 2),
+                        'discount'      => 0,
+                        'shipping'      => 0,
+                        'tax'           => 0,
+                        'total'         => round($subtotal, 2),
                         'notes'         => $this->request->getP('notes') ? $this->request->getP('notes') : null
                       )
         ));
