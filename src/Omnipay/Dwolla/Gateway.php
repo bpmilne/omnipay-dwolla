@@ -76,7 +76,7 @@ class Gateway extends AbstractGateway
 
     public function addItem(array $parameters = array())
     {
-        if (!getParameter('gatewaySession')) {
+        if (!$this->getParameter('gatewaySession')) {
             $this->clearItems();
         }
         return $this->setParameter('gatewaySession', $parameters);
