@@ -25,9 +25,9 @@ class PurchaseRequest extends AbstractRequest
                       'Secret'              => $keysec['secret'],
                       'AllowFundingSources' => $this->request->getParameter('AllowFundingSources'),
                       'AllowGuestCheckout'  => $this->request->getParameter('AllowGuestCheckout'),
-                      'Callback' => $this->request->getParameter('Callback') ? 
+                      'Callback' => $this->request->getParameter('Callback') ?
                         $this->request->getParameter('Callback') : null,
-                      'Redirect' => $this->request->getParameter('Redirect') ? 
+                      'Redirect' => $this->request->getParameter('Redirect') ?
                         $this->request->getParameter('Redirect') : null,
                       'PurchaseOrder'       => array(
                         'DestinationId' => $this->request->getParameter('DestinationId'),
@@ -36,7 +36,8 @@ class PurchaseRequest extends AbstractRequest
                         'shipping'      => $shipping,
                         'tax'           => $tax,
                         'total'         => round($subtotal - $discount + $shipping + $tax, 2),
-                        'notes'         => $this->request->getParameter('notes') ? $this->request->getParameter('notes') : null
+                        'notes' => $this->request->getParameter('notes') ?
+                          $this->request->getParameter('notes') : null
                       )
                      );
 
