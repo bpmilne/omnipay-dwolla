@@ -59,7 +59,7 @@ abstract class AbstractRequest extends Omnipay\Common\Message\AbstractRequest
         );
 
         $httpResponse = $httpRequest
-            ->setHeaderarray('Accept: application/json', 'Content-Type: application/json;charset=UTF-8'))
+            ->setHeaderarray('Accept: application/json', 'Content-Type: application/json;charset=UTF-8')
             ->send();
 
         return $this->response = new Response($this, $httpResponse->json());
