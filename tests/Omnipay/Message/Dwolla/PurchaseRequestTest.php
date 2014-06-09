@@ -8,9 +8,6 @@ class PurchaseRequestTest extends TestCase
 {
     public function setUp()
     {
-        $getP = new ReflectionMethod('AbstractRequest', 'getParameter');
-        $getP->setAccessible(true);
-
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->addItem(array('name' => "NOODLES",
                                       'description' => "POODLES",
@@ -19,20 +16,20 @@ class PurchaseRequestTest extends TestCase
         $this->request->initialize(
                 array('Key'                 => 'lRlAsej0WiwbXcvXv3Y4JaMD6uEt96kDs78fZNApKBkl8De7rD',
                       'Secret'              => 'HGYW7weJfk+QC50x5TdW+cuuMEIyoYRIQE/FDr3XAAf5YnOvX2',
-                      'AllowFundingSources' => $getP('AllowFundingSources'),
-                      'AllowGuestCheckout'  => $getP('AllowGuestCheckout'),
-                      'Callback'            => $getP('Callback') ? 
-                       $getP('Callback') : null,
-                      'Redirect'            => $getP('Redirect') ?
-                       $getP('Redirect') : null,
+                      'AllowFundingSources' => $this->request->getP('AllowFundingSources'),
+                      'AllowGuestCheckout'  => $this->request->getP('AllowGuestCheckout'),
+                      'Callback'            => $this->request->getP('Callback') ? 
+                       $this->request->getP('Callback') : null,
+                      'Redirect'            => $this->request->getP('Redirect') ?
+                       $this->request->getP('Redirect') : null,
                       'PurchaseOrder'       => array(
                         'DestinationId' => '812-111-7219',
-                        'orderItems'    => $getP('gatewaySession'),
+                        'orderItems'    => $this->request->getP('gatewaySession'),
                         'discount'      => $discount,
                         'shipping'      => $shipping,
                         'tax'           => $tax,
                         'total'         => round($subtotal - $discount + $shipping + $tax, 2),
-                        'notes'         => $getP('notes') ? $getP('notes') : null
+                        'notes'         => $this->request->getP('notes') ? $this->request->getP('notes') : null
                       )
         ));
     }
