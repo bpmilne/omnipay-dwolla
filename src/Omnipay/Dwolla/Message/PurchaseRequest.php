@@ -10,8 +10,9 @@ class PurchaseRequest extends AbstractRequest
     public function getData()
     {
         $subtotal = 0;
+        $items = $this->getParameter('gatewaySession');
 
-        foreach ($this->getParameter('gatewaySession') as $product) {
+        foreach ($items as $product) {
             $subtotal += floatval($product['Price']) * floatval($product['Quantity']);
         }
 
