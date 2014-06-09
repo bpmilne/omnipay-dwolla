@@ -16,18 +16,20 @@ class PurchaseRequestTest extends TestCase
         $this->request->initialize(
                 array('Key'                 => 'lRlAsej0WiwbXcvXv3Y4JaMD6uEt96kDs78fZNApKBkl8De7rD',
                       'Secret'              => 'HGYW7weJfk+QC50x5TdW+cuuMEIyoYRIQE/FDr3XAAf5YnOvX2',
-                      'AllowFundingSources' => $this->getParameter('AllowFundingSources'),
-                      'AllowGuestCheckout'  => $this->getParameter('AllowGuestCheckout'),
-                      'Callback'            => $this->getParameter('Callback') ? $this->getParameter('Callback') : null ,
-                      'Redirect'            => $this->getParameter('Redirect') ? $this->getParameter('Redirect') : null ,
+                      'AllowFundingSources' => $this->request->getParameter('AllowFundingSources'),
+                      'AllowGuestCheckout'  => $this->request->getParameter('AllowGuestCheckout'),
+                      'Callback'            => $this->request->getParameter('Callback') ? 
+                       $this->request->getParameter('Callback') : null,
+                      'Redirect'            => $this->request->getParameter('Redirect') ?
+                       $this->request->getParameter('Redirect') : null,
                       'PurchaseOrder'       => array(
                         'DestinationId' => '812-111-7219',
-                        'orderItems'    => $this->getParameter('gatewaySession'),
+                        'orderItems'    => $this->request->getParameter('gatewaySession'),
                         'discount'      => $discount,
                         'shipping'      => $shipping,
                         'tax'           => $tax,
                         'total'         => round($subtotal - $discount + $shipping + $tax, 2),
-                        'notes'         => $this->getParameter('notes') ? $this->getParameter('notes') : null
+                        'notes'         => $this->request->getParameter('notes') ? $this->request->getParameter('notes') : null
                       )
         ));
     }
