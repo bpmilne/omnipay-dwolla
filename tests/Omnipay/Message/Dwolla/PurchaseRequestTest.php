@@ -24,7 +24,7 @@ class PurchaseRequestTest extends TestCase
                        $this->request->getP('Redirect') : null,
                       'PurchaseOrder'       => array(
                         'DestinationId' => '812-111-7219',
-                        'orderItems'    => $this->request->getP('gatewaySession')),
+                        'orderItems'    => $this->request->getP('gatewaySession'),
                         'notes'         => $this->request->getP('notes') ? $this->request->getP('notes') : null
                       )
         ));
