@@ -55,7 +55,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         }
 
         $items = $this->getParameter('gatewaySession');
-        $items[] = $parameters
+        $items[] = $parameters;
 
         return $this->setParameter('gatewaySession', $items);
     }
