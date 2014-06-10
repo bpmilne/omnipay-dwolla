@@ -46,8 +46,7 @@ class Response extends AbstractResponse implements RedirectResponseInterface
     {
         if (!$this->isSuccessful()) {
             return $this->data['Message'];
-        }
-        else {
+        } else {
             return $this->data['CheckoutId'];
         }
     }
