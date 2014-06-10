@@ -3,6 +3,7 @@
 namespace Omnipay\Dwolla\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
+use Omnipay\Common\Message\RedirectResponseInterface;
 
 /**
  * Dwolla Response
@@ -11,7 +12,7 @@ class Response extends AbstractResponse implements RedirectResponseInterface
 {
     public function isSuccessful()
     {
-        return $this->data['Result'] == "Failure";
+        return $this->data['Result'] == "Success";
     }
 
     public function isRedirect()
@@ -21,7 +22,7 @@ class Response extends AbstractResponse implements RedirectResponseInterface
 
     public function getTransactionReference()
     {
-        if (isset($this->data['CheckoutId']) {
+        if (isset($this->data['CheckoutId'])) {
             return $this->data['CheckoutId'];
         }
     }
@@ -45,6 +46,9 @@ class Response extends AbstractResponse implements RedirectResponseInterface
     {
         if (!$this->isSuccessful()) {
             return $this->data['Message'];
+        }
+        else {
+            return $this->data['CheckoutId'];
         }
     }
 }

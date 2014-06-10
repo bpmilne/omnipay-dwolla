@@ -12,18 +12,18 @@ class PurchaseRequest extends AbstractRequest
         $subtotal = 0;
         $items = $this->getParameter('gatewaySession');
 
-        foreach ($items as $product) {
-            $subtotal += floatval($product['Price']) * floatval($product['Quantity']);
+        if (is_array($items)) {
+            foreach ($items as $product) {
+                $subtotal += floatval($product['Price']) * floatval($product['Quantity']);
+            }
         }
-
+        
         $discount = $this->getParameter('discount') ? $this->getParameter('discount') : 0;
         $shipping = $this->getParameter('shipping') ? $this->getParameter('shipping') : 0;
         $tax = $this->getParameter('tax') ? $this->getParameter('tax') : 0;
 
-        $keysec = $this->getParameter('key_secret');
-
-        $data = array('Key'                 => $keysec['key'],
-                      'Secret'              => $keysec['secret'],
+        $data = array('Key'                 => $this->getParameter('Key'),
+                      'Secret'              => $this->getParameter('Secret'),
                       'AllowFundingSources' => $this->getParameter('AllowFundingSources'),
                       'AllowGuestCheckout'  => $this->getParameter('AllowGuestCheckout'),
                       'Callback' => $this->getParameter('Callback') ?

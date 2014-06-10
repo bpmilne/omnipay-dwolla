@@ -26,8 +26,8 @@ class Gateway extends AbstractGateway
     {
         return array(
             // Required
-            'key_secret' => array('key' => '',
-                                  'secret' => ''),
+            'Key' => false,
+            'Secret' => false,
             'sandbox' => false,
             'gatewaySession' => false,
             'purchaseOrder' => false,
@@ -47,12 +47,13 @@ class Gateway extends AbstractGateway
 
     public function getKeySecret()
     {
-        return $this->getParameter('key_secret');
+        $key_secret = array('Key' => $this->getParameter('Key'), 'Secret' => $this->getParameter('Secret'));
+        return $key_secret;
     }
 
-    public function setKeySecret($value)
+    public function setKeySecret($key, $secret)
     {
-        return $this->setParameter('key_secret', $value);
+        return ($this->setParameter('Key', $key) && $this->setParameter('Secret', $secret));
     }
 
     public function getSandboxMode()
@@ -84,6 +85,11 @@ class Gateway extends AbstractGateway
     public function clearItems()
     {
         return $this->setParameter('gatewaySession', array());
+    }
+
+    public function getItems()
+    {
+        return $this->getParameter('gatewaySession');
     }
 
     /**

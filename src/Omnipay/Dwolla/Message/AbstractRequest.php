@@ -16,12 +16,13 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function getKeySecret()
     {
-        return $this->getParameter('key_secret');
+        $key_secret = array('Key' => $this->getParameter('Key'), 'Secret' => $this->getParameter('Secret'));
+        return $key_secret;
     }
 
-    public function setKeySecret($value)
+    public function setKeySecret($key, $secret)
     {
-        return $this->setParameter('key_secret', $value);
+        return ($this->setParameter('Key', $key) && $this->setParameter('Secret', $secret));
     }
 
     public function getSandboxMode()
@@ -71,6 +72,12 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('gatewaySession', array());
     }
 
+    public function getItems()
+    {
+        return $this->getParameter('gatewaySession');
+    }
+
+
     public function getHttpMethod()
     {
         return 'POST';
@@ -96,7 +103,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         );
 
         $httpResponse = $httpRequest
-            ->setHeaderarray('Accept: application/json', 'Content-Type: application/json;charset=UTF-8')
+            ->setHeader('Accept: application/json', 'Content-Type: application/json;charset=UTF-8')
             ->send();
 
         return $this->response = new Response($this, $httpResponse->json());
