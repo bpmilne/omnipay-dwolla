@@ -5,6 +5,8 @@
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements Dwolla support for Omnipay.
 
+[![Build Status](https://travis-ci.org/mach-kernel/omnipay-dwolla.png?branch=master)](https://travis-ci.org/mach-kernel/omnipay-dwolla)
+
 ## Warning
 This is an extremely early build of omnipay-dwolla, use this only for testing. Travis tests are currently being implemented; your mileage may
 vary. 
