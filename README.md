@@ -6,8 +6,8 @@
 processing library for PHP 5.3+. This package implements Dwolla support for Omnipay.
 
 ## Warning
-This is an extremely early build of omnipay-dwolla, use this only for testing. Travis tests 
-will come with future releases. 
+This is an extremely early build of omnipay-dwolla, use this only for testing. Travis tests are currently being implemented; your mileage may
+vary. 
 
 ## Installation
 
