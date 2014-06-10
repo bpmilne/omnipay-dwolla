@@ -48,14 +48,21 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     *   );
     */
 
-    public function addItem(array $parameters = array())
+    public function addItem($name, $price, $quantity = 1, $description = '')
     {
         if (!$this->getParameter('gatewaySession')) {
             $this->clearItems();
         }
 
+        $item = array(
+            'Name' => $name,
+            'Description' => $description,
+            'Price' => $price,
+            'Quantity' => $quantity
+        );
+
         $items = $this->getParameter('gatewaySession');
-        $items[] = $parameters;
+        $items[] = $item;
 
         return $this->setParameter('gatewaySession', $items);
     }

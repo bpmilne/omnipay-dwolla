@@ -9,10 +9,7 @@ class PurchaseRequestTest extends TestCase
     public function setUp()
     {
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
-        $this->request->addItem(array('name' => "NOODLES",
-                                      'description' => "POODLES",
-                                      'price' => 1,
-                                      'quantity' => 1));
+        $this->request->addItem("Noodle", 1, 1, "TEST");
         $this->request->initialize(
                 array('Key'                 => 'lRlAsej0WiwbXcvXv3Y4JaMD6uEt96kDs78fZNApKBkl8De7rD',
                       'Secret'              => 'HGYW7weJfk+QC50x5TdW+cuuMEIyoYRIQE/FDr3XAAf5YnOvX2',
